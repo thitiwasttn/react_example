@@ -1,4 +1,5 @@
 import React from "react";
+import './PropFuntion.css'
 
 const PropFunctionChild = (prop) => {
     let status = prop.data.status;
@@ -10,7 +11,7 @@ const PropFunctionChild = (prop) => {
         color: 'red'
     }
     return (
-        <div>
+        <div className={"div"}>
             <div>
                 รหัสคูปอง: {coupon} <span style={text_red}>{!status ? 'คูปองถูกใช้ไปแล้ว' : ''}</span>
             </div>

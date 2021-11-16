@@ -14,6 +14,17 @@ const PropFunctionParent = () => {
         }
     });
 
+    const couponName = [
+        {
+            name: 'coupon1',
+            id: 1
+        },
+        {
+            name: 'coupon2',
+            id: 2
+        }
+    ];
+
     const useCoupon = (name) => {
         console.log('useCoupon');
         const updateCoupon = {...state};
@@ -21,17 +32,20 @@ const PropFunctionParent = () => {
         updateCoupon[name].status = false;
         setState(updateCoupon);
     };
+    const render = couponName.map((x) => {
+        return (
+            <div key={x.id}>
+                <PropFunctionChild
+                    data={state[x.name]}
+                    setCoupon={useCoupon.bind(this, x.name)}
+                />
+            </div>
+        );
+    });
+
     return (
         <div className={"div"}>
-            <PropFunctionChild
-                data={state.coupon1}
-                setCoupon={useCoupon.bind(this, 'coupon1')}
-            />
-
-            <PropFunctionChild
-                data={state.coupon2}
-                setCoupon={useCoupon.bind(this, 'coupon2')}
-            />
+            {render}
         </div>
     );
 }
