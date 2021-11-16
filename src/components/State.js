@@ -8,10 +8,11 @@ const State = () => {
     });
 
     const click = () => {
-        setState({
-            firstName: 'Pee',
-            location: 'Ching Mai'
-        })
+        const updateState = {...state};
+        console.log(updateState);
+        updateState.firstName = 'Pee'
+        setState(updateState)
+        console.log(updateState);
     };
 
     return (
