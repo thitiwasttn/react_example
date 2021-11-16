@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import PropFunctionChild from "./PropFunctionChild";
+import './PropFuntion.css'
 
 const PropFunctionParent = () => {
     const [state, setState] = useState({
@@ -21,7 +22,7 @@ const PropFunctionParent = () => {
         setState(updateCoupon);
     };
     return (
-        <div>
+        <div className={"div"}>
             <PropFunctionChild
                 data={state.coupon1}
                 setCoupon={useCoupon.bind(this, 'coupon1')}
