@@ -4,40 +4,47 @@ import './PropFuntion.css'
 
 const PropFunctionParent = () => {
     const [state, setState] = useState({
-        coupon1: {
-            secretWord: 'fklewkfewofkewpfkewofwkfp',
-            status: true
-        },
-        coupon2: {
-            secretWord: 'keowkdoewkfoewkfoewpkfw',
-            status: true
-        }
+        coupon1: [
+            {
+                id: 1,
+                secretWord: 'fklewkfewofkewpfkewofwkfp',
+                status: true
+            },
+            {
+                id: 2,
+                secretWord: 'keowkdoewkfoewkfoewpkfw',
+                status: true
+            },
+            {
+                id: 3,
+                secretWord: 'dawdwacdwcdq',
+                status: true
+            },
+            {
+                id: 4,
+                secretWord: '4035o340kt43l,fokfowekfoe-',
+                status: true
+            }
+        ]
     });
 
-    const couponName = [
-        {
-            name: 'coupon1',
-            id: 1
-        },
-        {
-            name: 'coupon2',
-            id: 2
-        }
-    ];
-
-    const useCoupon = (name) => {
-        console.log('useCoupon');
+    const useCoupon = (id) => {
         const updateCoupon = {...state};
-        console.log(updateCoupon)
-        updateCoupon[name].status = false;
+        for (let updateCouponKey of updateCoupon.coupon1) {
+            if (updateCouponKey.id === id) {
+                updateCouponKey.status = false;
+                break;
+            }
+        }
         setState(updateCoupon);
+
     };
-    const render = couponName.map((x) => {
+    const render = state.coupon1.map((x) => {
         return (
             <div key={x.id}>
                 <PropFunctionChild
-                    data={state[x.name]}
-                    setCoupon={useCoupon.bind(this, x.name)}
+                    data={x}
+                    setCoupon={useCoupon.bind(this, x.id)}
                 />
             </div>
         );
