@@ -33,11 +33,10 @@ const StudentList = () => {
         }
     );
 
-    const deleteItemHandler = (deleteIndex) => {
-        console.log(deleteIndex);
+    const deleteItemHandler = (id) => {
         const data = [...studentState.students];
-        console.log(data);
-        data.splice(deleteIndex, 1);
+        const index = data.findIndex(value => value.id === id);
+        data.splice(index, 1);
         setStudentState({students: data});
     }
     return (
@@ -48,7 +47,7 @@ const StudentList = () => {
                     <div key={value.id} className={"col-lg-3 col-sm-4 mt-2"}>
                         <Student
                             data={value}
-                            deleteStudent={deleteItemHandler.bind(this, index)}
+                            deleteStudent={deleteItemHandler.bind(this, value.id)}
                         />
                     </div>
                 );
