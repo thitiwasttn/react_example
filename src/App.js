@@ -6,13 +6,14 @@ import Post from "./components/Post";
 import State from "./components/State";
 import PropFunction from "./components/PropFunction";
 import PropFunctionParent from "./components/propfunction/PropFunctionParent";
+import StudentList from "./components/student/StudentList";
 
 function App() {
 
     return (
         <div className="App">
             <h1>APP</h1>
-            <PropFunctionParent/>
+            <StudentList/>
         </div>
     );
     /*return (
