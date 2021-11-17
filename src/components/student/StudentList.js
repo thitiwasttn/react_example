@@ -7,27 +7,33 @@ const StudentList = () => {
             students: [
                 {
                     id: 1,
-                    name: 'Jeerawuth'
+                    name: 'Jeerawuth',
+                    editStatus: false
                 },
                 {
                     id: 2,
-                    name: 'Thitiwas'
+                    name: 'Thitiwas',
+                    editStatus: false
                 },
                 {
                     id: 3,
-                    name: 'Nupan'
+                    name: 'Nupan',
+                    editStatus: false
                 },
                 {
                     id: 4,
-                    name: 'CCCCCC'
+                    name: 'CCCCCC',
+                    editStatus: false
                 },
                 {
                     id: 5,
-                    name: 'DWDWDWADWADAD'
+                    name: 'DWDWDWADWADAD',
+                    editStatus: false
                 },
                 {
                     id: 6,
-                    name: 'Pporgorgkrgk'
+                    name: 'Pporgorgkrgk',
+                    editStatus: false
                 }
             ]
         }
@@ -39,6 +45,14 @@ const StudentList = () => {
         data.splice(index, 1);
         setStudentState({students: data});
     }
+
+    const editItemHandler = (editKey, data) => {
+        // console.log('editKey ', editKey, 'data ', data);
+        const students = [...studentState.students];
+        const editIndex = students.findIndex(value => value.id === editKey);
+        students[editIndex] = data;
+        setStudentState({students: students});
+    }
     return (
         <div className={"row"}>
             <h1>StudentList</h1>
@@ -48,6 +62,7 @@ const StudentList = () => {
                         <Student
                             data={value}
                             deleteStudent={deleteItemHandler.bind(this, value.id)}
+                            editStudent={editItemHandler.bind(this)}
                         />
                     </div>
                 );

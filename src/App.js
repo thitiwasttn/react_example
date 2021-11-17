@@ -11,7 +11,7 @@ import StudentList from "./components/student/StudentList";
 function App() {
 
     return (
-        <div className="App">
+        <div className="container">
             <h1>APP</h1>
             <StudentList/>
         </div>
