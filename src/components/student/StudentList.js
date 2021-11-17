@@ -40,6 +40,7 @@ const StudentList = () => {
     );
 
     const deleteItemHandler = (id) => {
+        // ... mean create new array not ref index state array
         const data = [...studentState.students];
         const index = data.findIndex(value => value.id === id);
         data.splice(index, 1);
