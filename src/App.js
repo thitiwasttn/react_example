@@ -2,18 +2,40 @@ import logo from './logo.svg';
 import './App.css';
 import Child1 from "./components/Child1";
 import Child2 from "./components/Child2";
-import Post from "./components/Post";
+// import Post from "./components/Post";
 import State from "./components/State";
 import PropFunction from "./components/PropFunction";
 import PropFunctionParent from "./components/propfunction/PropFunctionParent";
 import StudentList from "./components/student/StudentList";
+import {BrowserRouter, Route, Link, Routes, NavLink} from "react-router-dom";
+import Post from "./components/route/Post";
+import Profile from "./components/route/Profile";
+import Home from "./components/route/Home";
 
 function App() {
 
     return (
         <div className="container">
             <h1>APP</h1>
-            <StudentList/>
+            <BrowserRouter>
+                <div>
+                    <ul>
+                        <li><NavLink to={""}>Home</NavLink></li>
+                        <li><NavLink to={"posts"}>All Posts</NavLink></li>
+                        <li><NavLink to={"profile"}>User Profile</NavLink></li>
+                        <li><NavLink to={"posts/1"}>Post 1</NavLink></li>
+                        <li><NavLink to={"posts/2"}>Post 2</NavLink></li>
+                        <li><NavLink to={"posts?q=thitiwas"}>thitiwas</NavLink></li>
+                    </ul>
+                </div>
+                <Routes>
+                    <Route path={"posts"} element={<Post/>}/>
+                    <Route path={"posts/:id"} element={<Post/>}/>
+                    <Route path={"profile"} element={<Profile/>}/>
+                    <Route path={"home"} element={<Home/>}/>
+                    <Route path={""} element={<Home/>} exact={true}/>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
     /*return (
