@@ -12,6 +12,7 @@ import Post from "./components/route/Post";
 import Profile from "./components/route/Profile";
 import Home from "./components/route/Home";
 import Error404 from "./components/route/Error404";
+import TestUseEffect from "./components/lifcycle/TestUseEffect";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
                         <li><NavLink to={"posts/1"}>Post 1</NavLink></li>
                         <li><NavLink to={"posts/2"}>Post 2</NavLink></li>
                         <li><NavLink to={"posts?q=thitiwas"}>thitiwas</NavLink></li>
+                        <li><NavLink to={"useEffect"}>useEffect</NavLink></li>
                     </ul>
                 </div>
                 <Routes>
@@ -37,6 +39,7 @@ function App() {
                     <Route path={"posts/:id"} element={<Post/>}/>
                     <Route path={"profile"} element={<Profile/>}/>
                     <Route path={"home"} element={<Home/>}/>
+                    <Route path={"useEffect"} element={<TestUseEffect/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
