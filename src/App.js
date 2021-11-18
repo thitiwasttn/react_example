@@ -11,6 +11,7 @@ import {BrowserRouter, Route, Link, Routes, NavLink} from "react-router-dom";
 import Post from "./components/route/Post";
 import Profile from "./components/route/Profile";
 import Home from "./components/route/Home";
+import Error404 from "./components/route/Error404";
 
 function App() {
 
@@ -29,11 +30,13 @@ function App() {
                     </ul>
                 </div>
                 <Routes>
+
+                    <Route path={"*"} element={<Error404/>} />
+                    <Route path={""} element={<Home/>} />
                     <Route path={"posts"} element={<Post/>}/>
                     <Route path={"posts/:id"} element={<Post/>}/>
                     <Route path={"profile"} element={<Profile/>}/>
                     <Route path={"home"} element={<Home/>}/>
-                    <Route path={""} element={<Home/>} exact={true}/>
                 </Routes>
             </BrowserRouter>
         </div>
