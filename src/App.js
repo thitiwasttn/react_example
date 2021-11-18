@@ -13,6 +13,7 @@ import Profile from "./components/route/Profile";
 import Home from "./components/route/Home";
 import Error404 from "./components/route/Error404";
 import TestUseEffect from "./components/lifcycle/TestUseEffect";
+import LoginForm from "./components/Form/LoginForm";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
                         <li><NavLink to={"posts/2"}>Post 2</NavLink></li>
                         <li><NavLink to={"posts?q=thitiwas"}>thitiwas</NavLink></li>
                         <li><NavLink to={"useEffect"}>useEffect</NavLink></li>
+                        <li><NavLink to={"loginForm"}>login form</NavLink></li>
                     </ul>
                 </div>
                 <Routes>
@@ -40,6 +42,7 @@ function App() {
                     <Route path={"profile"} element={<Profile/>}/>
                     <Route path={"home"} element={<Home/>}/>
                     <Route path={"useEffect"} element={<TestUseEffect/>}/>
+                    <Route path={"loginForm"} element={<LoginForm/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
