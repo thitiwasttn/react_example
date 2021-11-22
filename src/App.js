@@ -15,40 +15,53 @@ import Error404 from "./components/route/Error404";
 import TestUseEffect from "./components/lifcycle/TestUseEffect";
 import LoginForm from "./components/Form/LoginForm";
 import Post2 from "./components/HOC/Post"
+import {createStore} from 'redux';
+import {Provider} from "react-redux";
+import reducer from "./reducer";
+import Get from "./components/redux/Get";
+import Add from "./components/redux/Add";
 
 function App() {
+    const store = createStore(reducer);
 
     return (
-        <div className="container">
-            <h1>APP</h1>
-            <BrowserRouter>
-                <div>
-                    <ul>
-                        <li><NavLink to={""}>Home</NavLink></li>
-                        <li><NavLink to={"posts"}>All Posts</NavLink></li>
-                        <li><NavLink to={"profile"}>User Profile</NavLink></li>
-                        <li><NavLink to={"posts/1"}>Post 1</NavLink></li>
-                        <li><NavLink to={"posts/2"}>Post 2</NavLink></li>
-                        <li><NavLink to={"posts?q=thitiwas"}>thitiwas</NavLink></li>
-                        <li><NavLink to={"useEffect"}>useEffect</NavLink></li>
-                        <li><NavLink to={"loginForm"}>login form</NavLink></li>
-                        <li><NavLink to={"HOC"}>HOC</NavLink></li>
-                    </ul>
-                </div>
-                <Routes>
+        <Provider store={store}>
 
-                    <Route path={"*"} element={<Error404/>} />
-                    <Route path={""} element={<Home/>} />
-                    <Route path={"posts"} element={<Post/>}/>
-                    <Route path={"posts/:id"} element={<Post/>}/>
-                    <Route path={"profile"} element={<Profile/>}/>
-                    <Route path={"home"} element={<Home/>}/>
-                    <Route path={"useEffect"} element={<TestUseEffect/>}/>
-                    <Route path={"loginForm"} element={<LoginForm/>}/>
-                    <Route path={"HOC"} element={<Post2/>}/>
-                </Routes>
-            </BrowserRouter>
-        </div>
+            <div className="container">
+                <h1>APP</h1>
+                <BrowserRouter>
+                    <div>
+                        <ul>
+                            <li><NavLink to={""}>Home</NavLink></li>
+                            <li><NavLink to={"posts"}>All Posts</NavLink></li>
+                            <li><NavLink to={"profile"}>User Profile</NavLink></li>
+                            <li><NavLink to={"posts/1"}>Post 1</NavLink></li>
+                            <li><NavLink to={"posts/2"}>Post 2</NavLink></li>
+                            <li><NavLink to={"posts?q=thitiwas"}>thitiwas</NavLink></li>
+                            <li><NavLink to={"useEffect"}>useEffect</NavLink></li>
+                            <li><NavLink to={"loginForm"}>login form</NavLink></li>
+                            <li><NavLink to={"HOC"}>HOC</NavLink></li>
+                            <li><NavLink to={"GET"}>GET</NavLink></li>
+                            <li><NavLink to={"ADD"}>ADD</NavLink></li>
+                        </ul>
+                    </div>
+                    <Routes>
+
+                        <Route path={"*"} element={<Error404/>}/>
+                        <Route path={""} element={<Home/>}/>
+                        <Route path={"posts"} element={<Post/>}/>
+                        <Route path={"posts/:id"} element={<Post/>}/>
+                        <Route path={"profile"} element={<Profile/>}/>
+                        <Route path={"home"} element={<Home/>}/>
+                        <Route path={"useEffect"} element={<TestUseEffect/>}/>
+                        <Route path={"loginForm"} element={<LoginForm/>}/>
+                        <Route path={"GET"} element={<Get/>}/>
+                        <Route path={"ADD"} element={<Add/>}/>
+                    </Routes>
+                </BrowserRouter>
+            </div>
+
+        </Provider>
     );
     /*return (
       <div className="App">
